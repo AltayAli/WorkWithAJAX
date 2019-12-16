@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+<script>
+ $.ajax({
+          url:'https://jsonplaceholder.typicode.com/photos',
+          method:'GET',
+      }).done(function(rs){
+          let count=0;
+        for(let i in rs){
+            console.log(rs[i]['url'])
+            $('body').append(`<img src="${rs[i]['url']}" alt="">`);
+            count++;
+            if(count==12){
+                break;
+            }
+        }
+      })</script>
+</html>

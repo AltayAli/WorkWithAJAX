@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <form class="">
+
+
+                <input id="mail" class="form-control username" type="email" placeholder="Username">
+                <input id="password" class="form-control password" type="password" placeholder="password">
+                <button class="success">Submit</button>
+        
+        
+        //Sincere@april.biz
+        //92998-3874
+            </form>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="sort.js"></script>
+  <script>
+     $('button').click((e)=>{
+         e.preventDefault();
+        $.ajax({
+          url:'https://jsonplaceholder.typicode.com/users',
+          method:'GET',
+      }).done(function(rs){
+        for(let f in rs){
+            if(rs[f]['email']==$('#mail').val()&&rs[f]['address']['zipcode']==$('#password').val()){
+                document.location.href='new.html'
+            }
+        }
+      })
+     })
+  </script>
+</html>
